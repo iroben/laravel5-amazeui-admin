@@ -17,7 +17,7 @@
                 <label for="description" class="am-u-sm-3 am-form-label">命名空间</label>
 
                 <div class="am-u-sm-9">
-                    {!! Form::text('action_namespace') !!}
+                    {!! Form::text('action_namespace', null, array('placeholder'=>'App\Http\Controllers')) !!}
                     <small></small>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <label for="description" class="am-u-sm-3 am-form-label">类名</label>
 
                 <div class="am-u-sm-9">
-                    {!! Form::text('action_class') !!}
+                    {!! Form::text('action_class', null, array('placeholder'=>'Test1Controller')) !!}
                     <small></small>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                 <label for="description" class="am-u-sm-3 am-form-label">方法名</label>
 
                 <div class="am-u-sm-9">
-                    {!! Form::text('action_method') !!}
+                    {!! Form::text('action_method',null, array('placeholder'=>'index')) !!}
                     <small></small>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <label for="description" class="am-u-sm-3 am-form-label">action</label>
 
                 <div class="am-u-sm-9">
-                    {!! Form::text('action') !!}
+                    {!! Form::text('action',null,array('placeholder'=>'TestController@index')) !!}
                     <small></small>
                 </div>
             </div>
