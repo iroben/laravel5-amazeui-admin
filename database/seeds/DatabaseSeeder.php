@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\RoleModel;
 
 
 class DatabaseSeeder extends Seeder
 {
+    private $admin;
+    private $test1;
+    private $test2;
+
+    private $role1;
+    private $role2;
 
     /**
      * Run the database seeds.
@@ -29,28 +36,47 @@ class DatabaseSeeder extends Seeder
         $left_bar[] = $this->module1();
         $left_bar[] = $this->module2();
         $left_bar[] = $this->module3();
-        $this->action_seed($left_bar);
         $this->testUser();
+        $this->testRole();
+        $this->test1->role_id = $this->role1->id;
+        $this->test2->role_id = $this->role2->id;
+        $this->test1->save();
+        $this->test2->save();
+        $this->action_seed($left_bar);
 
         // $this->call('UserTableSeeder');
     }
 
+    private function testRole()
+    {
+        $this->role1 = RoleModel::create(array(
+            'role_name'   => '测试模块1管理员',
+            'description' => '管理测试模块1的'
+        ));
+
+        $this->role2 = RoleModel::create(array(
+            'role_name'   => '测试模块2管理员',
+            'description' => '管理测试模块2的'
+        ));
+
+    }
+
     private function testUser()
     {
-        UserModel::create(array(
+        $this->admin = UserModel::create(array(
             'user_name' => 'roben',
             'real_name' => 'roben',
             'email'     => 'xxx@qq.com',
             'is_admin'  => 1,
             'password'  => Hash::make('roben')
         ));
-        UserModel::create(array(
+        $this->test1 = UserModel::create(array(
             'user_name' => 'test1',
             'real_name' => 'test1',
             'email'     => 'xxx@qq.com',
             'password'  => Hash::make('test1')
         ));
-        UserModel::create(array(
+        $this->test2 = UserModel::create(array(
             'user_name' => 'test2',
             'real_name' => 'test2',
             'email'     => 'xxx@qq.com',
@@ -74,6 +100,16 @@ class DatabaseSeeder extends Seeder
             ));
             if (isset($val['children']) && $val['children']) {
                 $this->action_seed($val['children'], $model->id);
+            }
+            if ($val['action_class'] == 'Test1Controller' || $val['action_name'] == '测试模块1') {
+                $this->role1->actions()->save($model);
+            }
+            if ($val['action_class'] == 'Test2Controller' || $val['action_name'] == '测试模块2') {
+                $this->role2->actions()->save($model);
+            }
+            if ($val['action_class'] == 'HomeController') {
+                $this->role1->actions()->save($model);
+                $this->role2->actions()->save($model);
             }
         }
     }
