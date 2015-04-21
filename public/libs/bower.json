@@ -1,0 +1,18 @@
+{
+  "name": "laravel5-amazeui-admin",
+  "version": "0.0.1",
+  "authors": [
+    "刘斌 <codeporter@163.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "amazeui": "~2.3.0"
+  }
+}

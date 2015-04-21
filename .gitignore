@@ -1,0 +1,6 @@
+/vendor
+/node_modules
+.env
+bower_components/
+.idea/
+composer.lock
