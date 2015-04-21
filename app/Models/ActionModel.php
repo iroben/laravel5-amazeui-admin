@@ -11,7 +11,7 @@ class ActionModel extends BaseModel
         'action_class',
         'action_method',
         'prefix_class',
-        'link',
+        'action',
         'pid',
         'created',
         'description'

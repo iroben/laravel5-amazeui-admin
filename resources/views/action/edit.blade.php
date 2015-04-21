@@ -41,10 +41,10 @@
             </div>
 
             <div class="am-form-group">
-                <label for="description" class="am-u-sm-3 am-form-label">链接</label>
+                <label for="description" class="am-u-sm-3 am-form-label">action</label>
 
                 <div class="am-u-sm-9">
-                    {!! Form::text('link') !!}
+                    {!! Form::text('action') !!}
                     <small></small>
                 </div>
             </div>
