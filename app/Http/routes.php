@@ -14,7 +14,7 @@
 Route::get('login', 'AuthController@login');
 Route::post('login', 'AuthController@doLogin');
 Route::get('logout', 'AuthController@logout');
-//Route::get('/', 'WelcomeController@index');
+Route::get('/', 'AuthController@login');
 
 Route::group(array('middleware' => 'permission'), function () {
 
