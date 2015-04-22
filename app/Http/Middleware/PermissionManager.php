@@ -103,15 +103,15 @@ class PermissionManager
     {
         $flag = false;
         foreach ($actions as $action) {
-            if (str_contains($currentAction, $action->action_namespace . '\\' . $action->action_class)) {
-                $flag = $currentAction === $action->action_namespace . '\\' . $action->action;
-
-                if (!$flag && !$action->children->isEmpty()) {
-                    $flag = $this->checkPermission($currentAction, $action->children, $level + 1);
-                }
-                if ($flag) {
-                    break;
-                }
+            
+            $flag = $currentAction === $action->action_namespace . '\\' . $action->action;
+            if (!$flag && $action->children
+                && !$action->children->isEmpty()
+            ) {
+                $flag = $this->checkPermission($currentAction, $action->children);
+            }
+            if ($flag) {
+                break;
             }
         }
 
