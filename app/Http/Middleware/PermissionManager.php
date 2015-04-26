@@ -59,10 +59,6 @@ class PermissionManager
                 return redirect('login');
             }
         }
-        foreach ($actions as $action) {
-//            echo $action->toJson();
-        }
-
 
         View::share('actions', $actions);
 
