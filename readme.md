@@ -25,7 +25,7 @@
 ----
 
 #开始
-浏览器打开http://laravel5-amazeui-admin.app/进入登录界面：
+浏览器打开http://laravel5-amazeui-admin.app/  进入登录界面：
 
 用户角色：用户名/密码
 
