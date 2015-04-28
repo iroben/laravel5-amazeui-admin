@@ -60,7 +60,7 @@ class RoleRepository extends BaseRepository
             $returnValue = array_merge($returnValue, $this->parentIds($action));
         }
 
-        return $returnValue;
+        return array_unique($returnValue);
 
     }
 
@@ -79,7 +79,7 @@ class RoleRepository extends BaseRepository
             }
         }
 
-        return array_unique($pids);
+        return $pids;
 
     }
 
