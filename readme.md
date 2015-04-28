@@ -50,4 +50,6 @@ http://amazeui.org/
 
 http://laravel.com/
 
+http://laravel-china.org/
+
 http://www.golaravel.com/laravel/docs/5.0/
