@@ -55,7 +55,7 @@
             <ul class="am-list admin-sidebar-list">
                 @foreach($actions as $action)
                     @if($action->children->isEmpty())
-                        <li><a href="{{ action($action->action) }}"><span
+                        <li><a @if($action->action)href="{{ action($action->action) }}"@endif><span
                                         class="{{ $action->prefix_class }}"></span> {{ $action->action_name }}</a>
                         </li>
                     @else
@@ -66,7 +66,7 @@
                                         class="am-icon-angle-right am-fr am-margin-right"></span></a>
                             <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-{{ $action->id }}">
                                 @foreach($action->children as $subaction)
-                                    <li><a href="{{ action($subaction->action) }}" class="am-cf"><span
+                                    <li><a @if($subaction->action)href="{{ action($subaction->action) }}"@endif class="am-cf"><span
                                                     class="{{ $subaction->prefix_class }}"></span> {{ $subaction->action_name }}
                                         </a>
                                     </li>
